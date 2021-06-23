@@ -1,0 +1,135 @@
+// base
+header {
+    border-top: solid 0.5 * @pad @colors-df-yellow;
+
+    .df-header-primary {
+        background-color: #ffffff;
+    }
+
+    .df-header-secondary {
+        color: #ffffff;
+        background-color: @colors-df-green;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+    }
+
+    // keeps the menu state
+    #df-menu-toggle {
+        display: none;
+    }
+}
+
+// desktop
+@media screen and (min-width: @ini_phone_width) {
+    header {
+        .df-header-primary {
+            height: 5.5 * @pad;
+
+            .df-group {
+                display: flex;
+                justify-content: space-between;
+
+                .df-logo {
+                    img {
+                        height: 3.5 * @pad;
+                        margin-top: 1.5 * @pad;
+                    }
+                }
+
+                .df-header-tools {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: flex-end;
+
+                    .df-header-tools-top,
+                    .df-header-tools-bottom {
+                        display: flex;
+                        flex-direction: row;
+                    }
+                }
+            }
+        }
+
+        .df-header-secondary {
+            height: 3.5 * @pad;
+            padding-top: @pad;
+
+            .df-group {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .df-breadcrumbs {
+                margin-top: @pad;
+                font-size: 85%;
+
+                .bchead {
+                    display: none;
+                }
+
+                a:link, a:active, a:visited {
+                    color: #ffffff;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}
+
+// mobile
+@media screen and (max-width: @ini_phone_width) {
+    header {
+        background-color: #ffffff;
+
+        .df-header-primary {
+            .df-logo {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                a img {
+                    height: 2.5em;
+                }
+
+                .df-burger {
+                    svg {
+                        width: 1.5em;
+                        fill: @ini_text;
+                    }
+                }
+            }
+
+            // this becomes the burger menu
+            .df-header-tools {
+                display: none;
+                position: absolute;
+                left: 0;
+                background-color: @ini_background;
+                z-index: 1000;
+                width: 100%;
+
+                // contact/tools next to each other
+                .df-header-tools-top {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                // rearrange search and navigation
+                .df-header-tools-bottom {
+                    display: flex;
+                    flex-direction: column-reverse;
+                }
+            }
+
+            // show menu based on checkbox state
+            #df-menu-toggle:checked + .df-header-tools {
+                display: block;
+            }
+        }
+    }
+}

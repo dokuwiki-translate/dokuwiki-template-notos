@@ -1,0 +1,55 @@
+html {
+    overflow-y: auto;
+}
+
+body {
+    font-family: @font_family_screen;
+    line-height: 1.5em;
+
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.3em;
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    h3 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    h4, h5, h6 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        font-weight: normal;
+    }
+
+    .plugin__navi,
+    h1, h2, h3, h4, h5, h6 {
+        color: @colors-df-darkgrey;
+    }
+
+    .dokuwiki textarea.edit {
+        font-family: Consolas,"Andale Mono WT","Andale Mono","Bitstream Vera Sans Mono","Nimbus Mono L",Monaco,"Courier New",monospace;;
+    }
+
+    .dokuwiki .search-results-form fieldset.search-form {
+        width: 98%;
+    }
+
+    img.media {
+        padding: @pad 0;
+    }
+    img.medialeft {
+        padding-right: @pad;
+    }
+    img.mediaright {
+        padding-left: @pad;
+    }
+}
