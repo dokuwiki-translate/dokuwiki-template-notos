@@ -10,6 +10,10 @@
 
 @text: @se_blue;
 
+/* Imports */
+
+@import "mobile";
+
 html, body {
   height: 100%;
 
@@ -63,7 +67,7 @@ header {
           align-items: center;
           color: @se_white;
           margin-right: 0.5em;
-          
+
           svg {
             width: 1em;
             height: 1em;
@@ -154,7 +158,7 @@ nav {
     &.tabs-secondary {
       flex-wrap: wrap;
       background-color: @se_white;
-      //justify-content: space-between;
+      border-bottom: 1px solid @se_lightgray;
 
       li {
         flex: 1 1 8rem;
@@ -168,21 +172,24 @@ nav {
 
 main {
   padding: @pad_content;
+  position: relative;
 
   .toc {
     border: @se_gray 1px solid;
     display: block;
     float: right;
-    /*padding: 1rem;*/
+    min-width: 15rem;
     font-size: smaller;
 
     .toc-header {
       background-color: @se_lightgray;
-      padding: 0.5rem;
+      padding: 0.5rem @pad_content 0.5rem @pad_content;
     }
 
     ul {
       padding-inline-start: 1rem;
+      padding-left: @pad_content;
+      padding-right: @pad_content;
     }
 
     ul li {
@@ -208,11 +215,45 @@ main {
       padding: 0.2rem
     }
   }
+}
+
+.pagetools {
+  color: @se_high;
+  position: absolute;
+  right: -12px;
+  top: 3 * @pad_content;
+  width: 52px;
+
+  .tools {
+      position: fixed;
+      width: 52px;
+
+    ul {
+      position: absolute;
+      right: 0;
+      text-align: right;
+      margin: 0;
+      padding: 0;
+      border: 1px solid transparent;
+      z-index: 10;
+      list-style: none;
+
+      svg path {
+        fill: @se_gray;
+      }
+
+      span {
+        display: none;
+      }
+    }
+  }
 
 }
 
 footer {
   background-color: @se_lightgray;
+  flex-shrink: 0;
+  height: 2 * @pad_content;
 
   p {
     text-align: right;
