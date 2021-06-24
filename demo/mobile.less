@@ -3,11 +3,31 @@
 @media screen and (max-width: @ini_phone_width) {
 
   body {
-    background-color: yellow;
-  }
+    //background-color: yellow;
 
-  .container {
-    width: 100%;
-    max-width: @ini_phone_width;
+    .desktop-only {
+      display: none;
+    }
+
+    .mobile-only {
+      display: unset;
+    }
+
+    nav {
+      ul {
+        margin: 0;
+
+        &.tabs-primary {
+          flex-wrap: wrap;
+          a {
+            font-weight: normal;
+          }
+        }
+
+        &.tabs-primary  ul li {
+          padding: unset;
+        }
+      }
+    }
   }
 }

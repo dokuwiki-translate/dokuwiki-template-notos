@@ -10,9 +10,9 @@
 
 @text: @se_blue;
 
-/* Imports */
-
-@import "mobile";
+.mobile-only {
+  display: none;
+}
 
 html, body {
   height: 100%;
@@ -36,6 +36,7 @@ body {
 }
 
 .container {
+  box-sizing: border-box;
   width: 100%;
   max-width: @width;
   margin: 0 auto;
@@ -171,7 +172,8 @@ nav {
 }
 
 main {
-  padding: @pad_content;
+  padding-top: @pad_content;
+  padding-bottom: @pad_content;
   position: relative;
 
   .toc {
@@ -217,10 +219,26 @@ main {
   }
 }
 
+#home-shortcut {
+  width: @pad_content;
+  position: relative;
+  bottom: -28rem;
+
+  #shortcut-logo {
+    position: absolute;
+  }
+
+  #shortcut-arrow {
+    position: absolute;
+    left: 3.2rem;
+    top: 3rem;
+  }
+}
+
 .pagetools {
   color: @se_high;
   position: absolute;
-  right: -12px;
+  right: -32px;
   top: 3 * @pad_content;
   width: 52px;
 
@@ -254,11 +272,16 @@ footer {
   background-color: @se_lightgray;
   flex-shrink: 0;
   height: 2 * @pad_content;
+  border-top: @se_high 2px solid;
 
   p {
+    padding-top: 0.25 * @pad_content;
     text-align: right;
     display: block;
     font-size: small;
   }
 }
 
+/* Imports */
+
+@import "mobile";
