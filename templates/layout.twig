@@ -15,38 +15,72 @@
 <div id="dokuwiki__top" class="{{ TPL.tpl_classes() }}">
 
     <header>
-        {% set logo = TPL.tpl_getMediaFile([':wiki:logo.png', ':logo.png', ':wiki:dokuwiki-128.png']) %}
-        <div class="branding">
-            <a href="{{ TPL.wl() }}"><img src="{{ logo }}"/>
-                <span class="wikititle">{{ conf.title|raw }}</span>
-            </a>
-            {% if conf.tagline %}<span class="tagline">{{ conf.tagline }}</span>{% endif %}
-        </div>
+        <div class="container">
+            {% set logo = TPL.tpl_getMediaFile([':wiki:logo.svg', ':wiki:logo.png', ':wiki:dokuwiki-128.png']) %}
+            <div class="branding">
+                <a href="{{ TPL.wl() }}"><img src="{{ logo }}"/></a>
+                <div>
+                    <h1 class="wikititle">{{ conf.title|raw }}</h1>
+                    {% if conf.tagline %}<span class="tagline">{{ conf.tagline }}</span>{% endif %}
+                </div>
+            </div>
 
-        {{ TPL.menu('mobile').getDropdown(lang.tools)|raw }}
-        {{ TPL.tpl_searchform()|raw }}
+            <div class="tools">
+                {{ TPL.menu('mobile').getDropdown(lang.tools)|raw }}
+                {{ TPL.tpl_searchform()|raw }}
+            </div>
+        </div>
     </header>
 
-    {% if TPL.page_findnearest(conf.sidebar) and ACT == 'show' %}
-        <nav>
-            {{ TPL.tpl_include_page(conf.sidebar, true, true)|raw }}
-        </nav>
-    {% endif %}
 
-    <aside>
-        <ul>
-            {{ TPL.menu('user').getListItems('action ')|raw }}
-            {{ TPL.menu('site').getListItems('action ')|raw }}
-            {% if TPL.view == 'detail' %}
-                {{ TPL.menu('detail').getListItems('action ')|raw }}
-            {% else %}
-                {{ TPL.menu('page').getListItems('action ')|raw }}
-            {% endif %}
-
+    <nav class="container">
+        <input class="menu-btn" type="checkbox" id="menu-btn"/>
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="navtabs">
+            <li class="primary"><a href="#">Briefs</a></li>
+            <li class="primary active"><a href="#">QHSR</a></li>
+            <li class="active-content">
+                <ul class="tabs-secondary">
+                    <li><a href="#">Quality</a></li>
+                    <li><a href="#">Certification</a></li>
+                    <li><a href="#">HSE</a></li>
+                    <li><a href="#">Eng Systems</a></li>
+                    <li><a href="#">Eng Performance</a></li>
+                    <li><a href="#">Eng Competence</a></li>
+                    <li><a href="#">Ashdord DFO</a></li>
+                    <li><a href="#">Technical Training</a></li>
+                </ul>
+            </li>
+            <li class="primary"><a href="#">Tech Info</a></li>
+            <li class="primary"><a href="#">MSG3-RS1</a></li>
+            <li class="primary"><a href="#">Esc Maint</a></li>
+            <li class="inactive-content">
+                <ul class="tabs-secondary">
+                    <li><a href="#">sub fgasd 1</a></li>
+                    <li><a href="#">subasd da 2</a></li>
+                    <li><a href="#">sub ada a3</a></li>
+                    <li><a href="#">subasd das d 4</a></li>
+                    <li><a href="#">subasda 5</a></li>
+                    <li><a href="#">subasda 6</a></li>
+                    <li><a href="#">sub asda 7</a></li>
+                    <li><a href="#">sub fgasd 1</a></li>
+                    <li><a href="#">subasd da 2</a></li>
+                    <li><a href="#">sub ada a3</a></li>
+                    <li><a href="#">subasd das d 4</a></li>
+                    <li><a href="#">subasda 5</a></li>
+                    <li><a href="#">subasda 6</a></li>
+                </ul>
+            </li>
+            <li class="primary"><a href="#">Recovery</a></li>
         </ul>
-    </aside>
 
-    <main>
+        <div class="breadcrumbs">
+            {{ TPL.tpl_breadcrumbs()|raw }}
+        </div>
+
+    </nav>
+
+    <main class="container">
         {{ TPL.html_msgarea()|raw }}
 
         <article>
@@ -54,10 +88,22 @@
             {% endblock %}
         </article>
 
-        {{ TPL.tpl_pageinfo()|raw }}
+        <aside id="dokuwiki__pagetools">
+            <div class="tools">
+                <ul>
+                    {% if TPL.view == 'detail' %}
+                        {{ TPL.menu('detail').getListItems('action ')|raw }}
+                    {% else %}
+                        {{ TPL.menu('page').getListItems('action ')|raw }}
+                    {% endif %}
+                </ul>
+            </div>
+        </aside>
+
     </main>
 
-    <footer>
+    <footer class="container">
+        {{ TPL.tpl_pageinfo()|raw }}
         {{ TPL.tpl_license('')|raw }}
     </footer>
 </div>

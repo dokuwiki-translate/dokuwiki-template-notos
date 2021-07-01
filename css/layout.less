@@ -1,116 +1,21 @@
 html, body {
-    height: 100%;
-}
-
-body .dokuwiki {
-
-    @media screen and (max-width: @ini_phone_width) {
-        .desktop-only {
-            display: none;
-        }
-    }
-
-    @media screen and (min-width: @ini_phone_width + 1) {
-        .mobile-only {
-            display: none;
-        }
-    }
-
+    padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-
-    header {
-        flex: 0 0;
-    }
-
-    main {
-        background-color: white;
-        flex: 1 0 auto;
-
-        .df-group {
-            display: flex;
-            align-items: flex-start;
-            position: relative;
-
-            article {
-                flex-grow: 1;
-                flex-shrink: 1;
-                margin: @pad 0;
-            }
-        }
-
-        #dokuwiki__pagetools li.action.top {
-            display: none;
-        }
-    }
-
-    footer {
-        flex: 0 0;
-
-        line-height: 4 * @pad;
-        border-top: solid 3 * @pad @colors-df-darkgrey;
-        background-color: @colors-df-darkestgrey;
-        color: #ffffff;
-        a, a:link, a:visited {
-            color: #ffffff;
-            margin-left: @pad;
-        }
-
-        .df-group {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        #df-totop {
-            position: fixed;
-            right: 44px;
-            bottom: -50px;
-            transition: bottom 0.3s;
-
-            a {
-                display: block;
-                background-color: black;
-                width: 40px;
-                height: 40px;
-                border-radius: 3px;
-            }
-
-            svg {
-                fill: white;
-                padding: 8px;
-            }
-        }
-    }
-
-    // limit content to site-width
-    .df-group {
-        max-width: @ini_site_width;
-        margin: 0 auto;
-
-        // "tablet mode" needs space for site tools
-        @media screen and (min-width: @ini_phone_width) and (max-width: @ini_site_width) {
-            margin-right: 45px;
-        }
-
-        // don't stick to the border on smaller screens
-        @media screen and (max-width: @ini_site_width) {
-            padding-left: @pad;
-            padding-right: @pad;
-        }
-    }
-
-    // messages
-    div.msg-area {
-        background-color: @ini_background;
-
-        div.error, div.info, div.success, div.notify {
-            margin: 0.5 * @pad 0;
-        }
-    }
 }
 
-div.no-display {
-    display: none;
+.container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: @width;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 3rem; // needs to be enough to accommodate the page-tools
+}
+
+.dokuwiki > header {
+    overflow: hidden;
+}
+
+.dokuwiki > main {
+    position: relative;
 }

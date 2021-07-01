@@ -1,0 +1,73 @@
+.dokuwiki > nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 1rem 0 0 0;
+    padding: 0;
+
+    li {
+        padding: 0.5rem;
+        margin: 0;
+    }
+
+    &.navtabs {
+        li.primary {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-right: 1px solid @se_gray;
+            border-bottom: 1px solid @se_gray;
+
+            &:last-child {
+                border-right: none
+            }
+
+            &.active {
+                a {
+                    color: @se_high;
+                }
+
+                border-bottom: none;
+                background-color: @se_white;
+            }
+
+            &:hover {
+                background-color: @se_lightgray;
+            }
+
+            a {
+                font-weight: bold;
+            }
+        }
+
+
+        .active-content {
+            // move to end and put in new line:
+            order: 9999;
+            flex: 0 0 100%;
+
+            ul {
+                flex-wrap: wrap;
+                background-color: @se_white;
+
+                li {
+                    flex: 1 1 8rem;
+                    padding: 0.5rem 1rem;
+                    text-align: center;
+                    border-radius: 5px;
+
+                    &:hover {
+                        background-color: @se_lightgray;
+                    }
+                }
+            }
+        }
+
+        .inactive-content {
+            display: none;
+        }
+
+    }
+}
