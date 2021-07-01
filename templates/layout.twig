@@ -36,11 +36,15 @@
     <nav class="container">
         <input class="menu-btn" type="checkbox" id="menu-btn"/>
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+
+        {{ SELF.renderNavigation()|raw }}
+
+
         <ul class="navtabs">
             <li class="primary"><a href="#">Briefs</a></li>
             <li class="primary active"><a href="#">QHSR</a></li>
             <li class="active-content">
-                <ul class="tabs-secondary">
+                <ul class="navtabs-secondary">
                     <li><a href="#">Quality</a></li>
                     <li><a href="#">Certification</a></li>
                     <li><a href="#">HSE</a></li>
@@ -55,7 +59,7 @@
             <li class="primary"><a href="#">MSG3-RS1</a></li>
             <li class="primary"><a href="#">Esc Maint</a></li>
             <li class="inactive-content">
-                <ul class="tabs-secondary">
+                <ul class="navtabs-secondary">
                     <li><a href="#">sub fgasd 1</a></li>
                     <li><a href="#">subasd da 2</a></li>
                     <li><a href="#">sub ada a3</a></li>
