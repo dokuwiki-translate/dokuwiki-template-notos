@@ -28,22 +28,31 @@ class CustomController implements CustomControllerInterface
      */
     public function renderNavigation()
     {
+        global $ID;
         $controlPage = 'wiki:navigation'; // FIXME load from config;
 
         $pages = $this->parseNavigation($controlPage);
 
         $html = '<ul class="navtabs">';
         foreach ($pages as $page) {
-            // fixme check if active
-            $html .= '<li class="primary">';
+            if($this->isActive($page['page'], $ID)) {
+                $class1 = 'primary active';
+                $class2 = 'active-content'; // FIXME ugly class name
+            } else {
+                $class1 = 'primary';
+                $class2 = 'inactive-content';
+            }
+
+
+            $html .= '<li class="'.$class1.'">';
             $html .= $this->navItemHTML($page);
             $html .= '</li>';
 
             // second level is a second item, because we reorder with flex box later
-            if (isset($page['sub'])) {
-                $html .= '<li class="inactive-content">';
+            if (isset($page['sub'])) foreach ($page['sub'] as $subpage) {
+                $html .= '<li class="'.$class2.'">';
                 $html .= '<ul class="secondary">';
-                $html .= $this->navItemHTML($page);
+                $html .= $this->navItemHTML($subpage);
                 $html .= '</ul>';
                 $html .= '</li>';
             }
@@ -70,6 +79,29 @@ class CustomController implements CustomControllerInterface
             'class' => 'external',
         ]);
         return "<a $attr>" . hsc($item['title']) . '</a>';
+    }
+
+    /**
+     * Is the current parent page "active" depending on the second one?
+     *
+     * @param string $parent
+     * @param string $page
+     * @return bool
+     * @todo this should have tests
+     */
+    protected function isActive($parent, $page)
+    {
+        if ($parent === $page) return true;
+        $parentNS = explode(':', $parent);
+        array_pop($parentNS);
+        $pageParts = explode(':', $page);
+        $pageParts = array_splice($pageParts, 0, count($parentNS));
+
+        $parent = join(':', $parentNS);
+        $page = join(':', $pageParts);
+
+        if ($parent === $page) return true;
+        return false;
     }
 
     /**
