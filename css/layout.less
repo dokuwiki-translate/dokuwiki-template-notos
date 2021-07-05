@@ -16,8 +16,20 @@ html, body {
     overflow: hidden;
 }
 
+.dokuwiki > footer {
+    background-color: @se_lightgray;
+    min-height: 4rem;
+    padding-top: 0.5rem;
+    border-top: @se_high 2px solid;
+
+    .container {
+        font-size: small;
+    }
+}
+
 .dokuwiki > main {
     position: relative;
+    min-height: 0.5 * @width;
 }
 
 .mobile-menu-btn {
