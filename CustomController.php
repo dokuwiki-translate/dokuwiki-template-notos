@@ -52,10 +52,14 @@ class CustomController implements CustomControllerInterface
             $html .= '</li>';
 
             // second level is a second item, because we reorder with flex box later
-            if (isset($page['sub'])) foreach ($page['sub'] as $subpage) {
+            if (isset($page['sub'])) {
                 $html .= '<li class="'.$class2.'">';
                 $html .= '<ul class="secondary">';
-                $html .= $this->navItemHTML($subpage);
+                foreach ($page['sub'] as $subpage) {
+                    $html .= '<li>';
+                    $html .= $this->navItemHTML($subpage);
+                    $html .= '</li>';
+                }
                 $html .= '</ul>';
                 $html .= '</li>';
             }
@@ -114,7 +118,6 @@ class CustomController implements CustomControllerInterface
      *
      * @param string $controlPageFile
      * @return array
-     * @todo This should have some tests
      */
     public function parseNavigation($controlPageFile)
     {
