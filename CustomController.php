@@ -29,13 +29,16 @@ class CustomController implements CustomControllerInterface
     public function renderNavigation()
     {
         global $ID;
-        $controlPage = 'wiki:navigation'; // FIXME load from config;
+        $html = '';
 
-        $pages = $this->parseNavigation($controlPage);
+        $controlPage = tpl_getConf('navigation_page');
+        if (!page_exists($controlPage)) return $html;
 
-        $html = '<ul class="navtabs">';
+        $pages = $this->parseNavigation(wikiFN($controlPage));
+
+        $html .= '<ul class="navtabs">';
         foreach ($pages as $page) {
-            if($this->isActive($page['page'], $ID)) {
+            if ($this->isActive($page['page'], $ID)) {
                 $class1 = 'primary active';
                 $class2 = 'active-content'; // FIXME ugly class name
             } else {
@@ -109,13 +112,13 @@ class CustomController implements CustomControllerInterface
      *
      * Returns the list as nested array
      *
-     * @param string $controlPage
+     * @param string $controlPageFile
      * @return array
      * @todo This should have some tests
      */
-    protected function parseNavigation($controlPage)
+    public function parseNavigation($controlPageFile)
     {
-        $instructions = p_cached_instructions(wikiFN($controlPage), false, $controlPage);
+        $instructions = p_cached_instructions($controlPageFile);
 
         $result = [];
         $pointers = [&$result]; // point to current list
