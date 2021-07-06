@@ -1,4 +1,47 @@
 .dokuwiki > main > article {
+
+  /* links */
+  a {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  /* tables */
+  div.table table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      border: @se_gray 1px solid;
+    }
+
+    th {
+      background-color: @se_lightgray;
+    }
+
+    td {
+      padding: 0.2rem
+    }
+
+    a {
+      font-weight: unset;
+    }
+  }
+
+  /* code */
+  pre, code, samp, kbd {
+    background-color: @se_lightgray;
+    color: @se_gray;
+    box-shadow: inset 0 0 0.3em #bbb;
+    border-radius: 3px;
+
+    &.code {
+      padding: 0.5rem;
+    }
+  }
+
+  /* TOC */
   #dw__toc {
     min-width: 20rem;
     background-color: unset;
@@ -26,7 +69,12 @@
         padding-left:1rem;
         padding-right: 1rem;
 
-        li {
+        a {
+          font-weight: unset;
+          text-decoration: unset;
+        }
+
+        li:not(.clear) {
           list-style-type: disc;
         }
       }

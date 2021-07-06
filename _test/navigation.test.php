@@ -8,7 +8,7 @@ class navigation_tpl_notos_test extends DokuWikiTest
 {
 
     /**
-     * Simple test to make sure the template.info.txt is in correct format
+     * Test parsing control page into navigation structure
      */
     public function test_templateinfo()
     {
