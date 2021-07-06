@@ -39,22 +39,19 @@ class CustomController implements CustomControllerInterface
         $html .= '<ul class="navtabs">';
         foreach ($pages as $page) {
             if ($this->isActive($page['page'], $ID)) {
-                $class1 = 'primary active';
-                $class2 = 'active-content'; // FIXME ugly class name
+                $active = ' active';
             } else {
-                $class1 = 'primary';
-                $class2 = 'inactive-content';
+                $active = '';
             }
 
-
-            $html .= '<li class="'.$class1.'">';
+            $html .= '<li class="primary' . $active . '">';
             $html .= $this->navItemHTML($page);
             $html .= '</li>';
 
             // second level is a second item, because we reorder with flex box later
             if (isset($page['sub'])) {
-                $html .= '<li class="'.$class2.'">';
-                $html .= '<ul class="secondary">';
+                $html .= '<li class="secondary' . $active . '">';
+                $html .= '<ul>';
                 foreach ($page['sub'] as $subpage) {
                     $html .= '<li>';
                     $html .= $this->navItemHTML($subpage);
