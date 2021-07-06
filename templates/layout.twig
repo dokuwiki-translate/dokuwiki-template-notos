@@ -39,9 +39,11 @@
 
         {{ SELF.renderNavigation()|raw }}
 
+        {% if ACT == 'show' %}
         <div class="breadcrumbs">
             {{ TPL.tpl_breadcrumbs()|raw }}
         </div>
+        {%  endif %}
 
     </nav>
 
