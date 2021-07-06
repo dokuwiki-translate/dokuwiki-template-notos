@@ -29,7 +29,10 @@ class CustomController implements CustomControllerInterface
     public function renderNavigation()
     {
         global $ID;
+        global $ACT;
         $html = '';
+
+        if ($ACT !== 'show') return $html;
 
         $controlPage = tpl_getConf('navigation_page');
         if (!page_exists($controlPage)) return $html;
