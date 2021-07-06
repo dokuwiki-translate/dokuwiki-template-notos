@@ -1,0 +1,22 @@
+/* Nots Template specific tools */
+
+
+/**
+ * CSS only toggle mechanism
+ */
+input.notos-toggle {
+    display: none;
+
+    & + * {
+        display: none;
+    }
+
+    &:checked + * {
+        display: block;
+    }
+}
+label.notos-toggle {
+    cursor: pointer;
+}
+
+

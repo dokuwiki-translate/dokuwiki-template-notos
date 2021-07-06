@@ -26,7 +26,20 @@
             </div>
 
             <div class="tools">
-                {{ TPL.menu('mobile').getDropdown(lang.tools)|raw }}
+                <div class="tools-site">
+                    <label class="notos-toggle" for="notos__sitetools">Site Tools*</label>
+                    <input type="checkbox" class="notos-toggle" id="notos__sitetools">
+                    <ul>
+                        {{ TPL.menu('site').getListItems('', false)|raw }}
+                    </ul>
+                </div>
+                <div class="tools-user">
+                    <label class="notos-toggle" for="notos__usertools">User Tools*</label>
+                    <input type="checkbox" class="notos-toggle" id="notos__usertools">
+                    <ul>
+                        {{ TPL.menu('user').getListItems('', false)|raw }}
+                    </ul>
+                </div>
                 {{ TPL.tpl_searchform()|raw }}
             </div>
         </div>
