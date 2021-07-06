@@ -18,7 +18,7 @@
         <div class="container">
             {% set logo = TPL.tpl_getMediaFile([':wiki:logo.svg', ':wiki:logo.png', ':wiki:dokuwiki-128.png']) %}
             <div class="branding">
-                <a href="{{ TPL.wl() }}"><img src="{{ logo }}"/></a>
+                <a href="{{ TPL.wl() }}"><img src="{{ logo }}" alt="{{ conf.title|striptags }}"/></a>
                 <div>
                     <h1 class="wikititle">{{ conf.title|raw }}</h1>
                     {% if conf.tagline %}<span class="tagline">{{ conf.tagline }}</span>{% endif %}
