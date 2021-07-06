@@ -30,16 +30,42 @@
         }
 
         .tools {
-            a {
-                color: @se_white;
-            }
             z-index: 1;
+            position: relative;
 
-            ul {
-                position: absolute;
-                list-style: none;
-                z-index: 10;
-                background-color: @se_gray;
+            div {
+                display: inline-block;
+
+                label {
+                    display: flex;
+                    align-items: center;
+                    margin-left: 1rem;
+
+                    svg {
+                        fill: @se_white;
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        margin-right: 0.25rem;
+                    }
+                }
+
+                ul {
+                    position: absolute;
+                    right: 0;
+                    top: 1em;
+                    width: 20rem;
+                    padding: 0;
+
+                    list-style: none;
+                    z-index: 10;
+                    background-color: @se_white;
+                    border: 1px solid @se_gray;
+
+                    li {
+                        text-align: center;
+                        line-height: 2.5;
+                    }
+                }
             }
         }
     }

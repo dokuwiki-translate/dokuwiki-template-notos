@@ -25,21 +25,30 @@
                 </div>
             </div>
 
-            <div class="tools">
-                <div class="tools-site">
-                    <label class="notos-toggle" for="notos__sitetools">Site Tools*</label>
-                    <input type="checkbox" class="notos-toggle" id="notos__sitetools">
-                    <ul>
-                        {{ TPL.menu('site').getListItems('', false)|raw }}
-                    </ul>
+            <div>
+                <div class="tools">
+                    <div class="tools-site">
+                        <label class="notos-toggle" for="notos__sitetools">
+                            {{ TPL.inlineSVG(TPL.tpl_incdir() ~ '/ico/hammer-wrench.svg')|raw }}
+                            <span>{{ lang.site_tools }}</span>
+                        </label>
+                        <input type="checkbox" class="notos-toggle" id="notos__sitetools">
+                        <ul>
+                            {{ TPL.menu('site').getListItems('', false)|raw }}
+                        </ul>
+                    </div>
+                    <div class="tools-user">
+                        <label class="notos-toggle" for="notos__usertools">
+                            {{ TPL.inlineSVG(TPL.tpl_incdir() ~ '/ico/account-cog.svg')|raw }}
+                            <span>{{ lang.user_tools }}</span>
+                        </label>
+                        <input type="checkbox" class="notos-toggle" id="notos__usertools">
+                        <ul>
+                            {{ TPL.menu('user').getListItems('', false)|raw }}
+                        </ul>
+                    </div>
                 </div>
-                <div class="tools-user">
-                    <label class="notos-toggle" for="notos__usertools">User Tools*</label>
-                    <input type="checkbox" class="notos-toggle" id="notos__usertools">
-                    <ul>
-                        {{ TPL.menu('user').getListItems('', false)|raw }}
-                    </ul>
-                </div>
+
                 {{ TPL.tpl_searchform()|raw }}
             </div>
         </div>
@@ -53,10 +62,10 @@
         {{ SELF.renderNavigation()|raw }}
 
         {% if ACT == 'show' %}
-        <div class="breadcrumbs">
-            {{ TPL.tpl_breadcrumbs()|raw }}
-        </div>
-        {%  endif %}
+            <div class="breadcrumbs">
+                {{ TPL.tpl_breadcrumbs()|raw }}
+            </div>
+        {% endif %}
 
     </nav>
 
