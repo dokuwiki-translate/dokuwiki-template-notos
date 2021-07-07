@@ -1,3 +1,14 @@
 .dokuwiki > main #dokuwiki__pagetools {
     right: 0;
+
+    div.tools ul li {
+        a:active,
+        a:focus,
+        a:hover {
+            color: @ini_text;
+            svg {
+                fill: @ini_border;
+            }
+        }
+    }
 }
