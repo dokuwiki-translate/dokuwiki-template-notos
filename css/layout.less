@@ -6,7 +6,7 @@ html, body {
 .container {
     box-sizing: border-box;
     width: 100%;
-    max-width: @width;
+    max-width: @ini_site_width;
     margin: 0 auto;
     padding-left: 1.5rem;
     padding-right: 3rem; // needs to be enough to accommodate the page-tools
@@ -14,10 +14,10 @@ html, body {
 
 .dokuwiki > footer {
     clear: both;
-    background-color: @se_lightgray;
+    background-color: @ini_accent;
     min-height: 4rem;
     padding-top: 0.5rem;
-    border-top: @se_high 2px solid;
+    border-top: @ini_highlight 2px solid;
 
     .container {
         font-size: small;
@@ -26,7 +26,7 @@ html, body {
 
 .dokuwiki > main {
     position: relative;
-    min-height: 0.5 * @width;
+    min-height: 0.5 * @ini_site_width;
 }
 
 .dokuwiki div.footnotes {
@@ -36,7 +36,7 @@ html, body {
 .dokuwiki blockquote {
     margin: 0 0 1.4em 0;
     padding: 0 .5em;
-    border-left: 3px solid @se_gray;
+    border-left: 3px solid @ini_border;
 
     div.no {
         display: inline;
