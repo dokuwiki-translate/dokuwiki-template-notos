@@ -1,10 +1,19 @@
 .dokuwiki > main > article {
 
-  /* links */
-  a {
-    font-weight: bold;
-    text-decoration: underline;
-  }
+    /* links */
+    a {
+        text-decoration: underline;
+        text-decoration-color: @se_high;
+        text-decoration-thickness: 1px;
+    }
+
+    a:hover {
+        color: @se_blue;
+        background-color: @se_lightgray;
+        border-radius: 3px;
+        text-decoration: none;
+        border-bottom: 1px solid @se_high;
+    }
 
   /* tables */
   div.table table {
@@ -44,7 +53,7 @@
   /* TOC */
   #dw__toc {
     min-width: 20rem;
-    background-color: unset;
+    background-color: @se_white;
     border: @se_gray 1px solid;
     z-index: 12;
 
