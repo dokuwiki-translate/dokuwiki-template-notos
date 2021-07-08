@@ -38,17 +38,36 @@
     }
   }
 
-  /* code */
-  pre, code, samp, kbd {
-    background-color: @ini_accent;
-    color: @ini_border;
-    box-shadow: inset 0 0 0.3em #bbb;
-    border-radius: 3px;
+    /* code */
+    pre, code, samp, kbd {
+        background-color: @ini_accent;
+        color: @ini_border;
+        box-shadow: inset 0 0 0.3em #bbb;
+        border-radius: 3px;
 
-    &.code {
-      padding: 0.5rem;
+        &.code {
+            padding: 0.5rem;
+        }
     }
-  }
+
+    dl.code dd, dl.file dd {
+        margin: 0;
+        clear: left;
+    }
+
+    dl.file dt {
+        border-bottom: 1px @ini_border dotted;
+    }
+
+    dl.code dt, dl.file dt {
+        background-color: @ini_accent;
+        color: inherit;
+        border-top-left-radius: .3em;
+        border-top-right-radius: .3em;
+        padding: .3em .6em .1em;
+        margin-bottom: -1px;
+        float: left;
+    }
 
   /* TOC */
   #dw__toc {
