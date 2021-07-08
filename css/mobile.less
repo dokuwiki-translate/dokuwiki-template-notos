@@ -1,0 +1,44 @@
+@media screen and (max-width: @ini_phone_width) {
+
+    .dokuwiki {
+
+        nav {
+            &.container {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            ul {
+                margin: 0;
+
+                &.navtabs {
+                    display: block;
+                }
+
+
+                li.primary {
+                    flex-wrap: wrap;
+                }
+
+                li.secondary.active {
+                    padding: unset;
+
+                    font-size: small;
+                    border-bottom: @ini_highlight 1px solid;
+                }
+            }
+        }
+
+        /* compact header */
+        header {
+            .container {
+                display: block;
+                padding-right: 1rem;
+            }
+
+            div.tools label.notos-toggle span {
+                display: none;
+            }
+        }
+    }
+}
