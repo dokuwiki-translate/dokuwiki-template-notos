@@ -1,6 +1,7 @@
 .dokuwiki > main > article {
 
     /* links */
+
     a {
         text-decoration: underline;
         text-decoration-color: @ini_highlight;
@@ -15,98 +16,101 @@
         border-bottom: 1px solid @ini_highlight;
     }
 
-  /* tables */
-  div.table table {
-    width: 100%;
-    border-collapse: collapse;
+    /* tables */
 
-    th,
-    td {
-      border: @ini_border 1px solid;
-    }
+    div.table table {
+        width: 100%;
+        border-collapse: collapse;
 
-    th {
-      background-color: @ini_accent;
-    }
+        th,
+        td {
+            border: @ini_border 1px solid;
+        }
 
-    td {
-      padding: 0.2rem
-    }
+        th {
+            background-color: @ini_accent;
+        }
 
-    a {
-      font-weight: unset;
+        td {
+            padding: 0.2rem
+        }
+
+        a {
+            font-weight: unset;
+        }
     }
-  }
 
     /* code */
-    pre, code, samp, kbd {
-        background-color: @ini_accent;
-        color: @ini_border;
-        box-shadow: inset 0 0 0.3em #bbb;
-        border-radius: 3px;
 
+    pre {
+        border: 1px solid @ini_border;
+        border-radius: 3px;
+        overflow: auto;
+
+        &.file,
         &.code {
             padding: 0.5rem;
         }
     }
 
-    dl.code dd, dl.file dd {
-        margin: 0;
-        clear: left;
-    }
-
-    dl.file dt {
-        border-bottom: 1px @ini_border dotted;
-    }
-
-    dl.code dt, dl.file dt {
-        background-color: @ini_accent;
-        color: inherit;
-        border-top-left-radius: .3em;
-        border-top-right-radius: .3em;
-        padding: .3em .6em .1em;
-        margin-bottom: -1px;
-        float: left;
-    }
-
-  /* TOC */
-  #dw__toc {
-    min-width: 20rem;
-    background-color: @ini_background;
-    border: @ini_border 1px solid;
-    z-index: 12;
-
-    h3 {
-      margin-block-start: 0;
-      margin-block-end: 0;
-      padding: 0.5rem 2rem 0.5rem 2rem;
-
-      &.toggle {
-        font-weight: normal;
-        font-size: initial;
-        background-color: @ini_accent;
-      }
-    }
-
-    > div {
-      font-size: smaller;
-      padding: 1rem;
-
-      ul.toc {
-        padding-inline-start: 1rem;
-        padding-left:1rem;
-        padding-right: 1rem;
-
-        a {
-          font-weight: unset;
-          text-decoration: unset;
+    dl.code,
+    dl.file {
+        dd {
+            margin: 0;
+            clear: left;
         }
 
-        li:not(.clear) {
-          list-style-type: disc;
+        dt {
+            border: 1px solid @ini_border;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-color: @ini_background;
+            padding: .3em .6em .1em;
+            margin-left: 1em;
+            margin-bottom: -1px;
+            float: left;
         }
-      }
     }
-  }
+
+    /* TOC */
+
+    #dw__toc {
+        min-width: 20rem;
+        background-color: @ini_background;
+        border: @ini_border 1px solid;
+        z-index: 12;
+
+        h3 {
+            margin-block-start: 0;
+            margin-block-end: 0;
+            padding: 0.5rem 2rem 0.5rem 2rem;
+
+            &.toggle {
+                font-weight: normal;
+                font-size: initial;
+                background-color: @ini_accent;
+            }
+        }
+
+        > div {
+            font-size: smaller;
+            padding: 1rem;
+
+            ul.toc {
+                padding-inline-start: 1rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+
+                a {
+                    font-weight: unset;
+                    text-decoration: unset;
+                }
+
+                li:not(.clear) {
+                    list-style-type: disc;
+                }
+            }
+        }
+    }
 }
 
