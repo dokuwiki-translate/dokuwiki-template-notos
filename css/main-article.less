@@ -75,8 +75,26 @@
         }
     }
 
-    /* TOC */
+    /* Section Editing */
+    .secedit {
+        float: none;
+        margin-top: 0;
+        overflow: auto;
 
+        button {
+            opacity: 0.5;
+            margin-top: 0.5rem;
+            z-index: 150;
+            float: right;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+
+    /* TOC */
     #dw__toc {
         min-width: 20rem;
         background-color: @ini_background;
