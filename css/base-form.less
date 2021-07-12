@@ -7,6 +7,12 @@ form {
         line-height: 1.5em;
         border: 1px solid @ini_border;
         border-radius: 2px;
+        outline: none;
+
+        &:active,
+        &:focus {
+            border: 1px solid @ini_highlight;
+        }
     }
 
     input[type=button],
