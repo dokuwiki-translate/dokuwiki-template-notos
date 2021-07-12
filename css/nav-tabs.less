@@ -54,27 +54,136 @@
                 order: 9999;
                 flex: 0 0 100%;
                 display: flex;
+            }
 
-                ul {
-                    flex-wrap: wrap;
-                    background-color: @ini_background;
+            ul {
+                flex-wrap: wrap;
+                background-color: @ini_background;
 
-                    li {
-                        flex: 1 1 8rem;
-                        padding: 0.5rem 1rem;
-                        text-align: center;
-                        border-radius: 5px;
+                li {
+                    flex: 1 1 8rem;
+                    padding: 0.5rem 1rem;
+                    text-align: center;
+                    border-radius: 5px;
 
-                        &:hover {
-                            background-color: @ini_accent;
+                    &:hover {
+                        background-color: @ini_accent;
 
-                            a {
-                                color: unset;
-                            }
+                        a {
+                            color: unset;
                         }
                     }
                 }
             }
         }
     }
+}
+
+// mobile toggle mechanism on desktop
+.dokuwiki > nav {
+    label {
+        display: none;
+    }
+
+    input {
+        display: none;
+    }
+}
+
+@media screen and (max-width: @ini_phone_width) {
+    @menu-pos-x: 1rem;
+    @menu-pos-y: -4rem;
+
+    // mobile menu
+    .dokuwiki > nav {
+        position: relative;
+
+        ul.navtabs {
+            position: absolute;
+            left: @menu-pos-x;
+            top: @menu-pos-y;
+            width: 90vw;
+            z-index: 100;
+            background-color: @ini_background;
+            box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+
+            padding-top: 3rem; // space for menu button
+            margin: 0;
+
+            flex-direction: column;
+            border-bottom: 1px solid @ini_border;
+
+            li.primary {
+                border: none;
+                border-top: 1px solid @ini_border;
+            }
+
+            li.secondary {
+                display: block;
+
+                &.active {
+                    order: unset;
+                }
+
+                ul {
+                    margin: 0;
+
+                    li {
+                        text-align: left;
+                        flex: 1 1 40%;
+                    }
+                }
+            }
+        }
+    }
+
+    // mobile toggle mechanism
+    .dokuwiki > nav {
+        label {
+            position: absolute;
+            left: @menu-pos-x;
+            top: @menu-pos-y;
+            z-index: 105; // above the menu
+            display: block;
+            cursor: pointer;
+
+            svg {
+                width: 3rem;
+                height: 3rem;
+            }
+
+            .open {
+                display: block;
+
+                svg {
+                    fill: @ini_background;
+                }
+            }
+
+            .close {
+                display: none;
+            }
+        }
+
+        input:checked ~ ul {
+            display: flex;
+        }
+
+        input:checked ~ label {
+            .open {
+                display: none;
+            }
+
+            .close {
+                display: block;
+            }
+        }
+
+        ul.navtabs {
+            display: none;
+        }
+
+
+    }
+
 }

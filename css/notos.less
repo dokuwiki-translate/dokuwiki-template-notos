@@ -7,12 +7,12 @@
 input.notos-toggle {
     display: none;
 
-    & + * {
-        display: none;
+    & ~ * {
+        display: none !important;
     }
 
     &:checked + * {
-        display: block;
+        display: inherit !important;
     }
 }
 label.notos-toggle {

@@ -24,9 +24,10 @@ class CustomController implements CustomControllerInterface
      * We only support two levels. Deeper levels that might be returned from the navigation
      * control page will simply be ignored here
      *
+     * @param string $class additional classes to add to the navigation
      * @return string
      */
-    public function renderNavigation()
+    public function renderNavigation($class='')
     {
         global $ID;
         global $ACT;
@@ -39,7 +40,7 @@ class CustomController implements CustomControllerInterface
 
         $pages = $this->parseNavigation(wikiFN($controlPage));
 
-        $html .= '<ul class="navtabs">';
+        $html .= '<ul class="navtabs '.$class.'">';
         foreach ($pages as $page) {
             if ($this->isActive($page['page'], $ID)) {
                 $active = ' active';

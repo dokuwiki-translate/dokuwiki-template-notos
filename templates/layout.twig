@@ -56,9 +56,11 @@
 
 
     <nav class="container">
-        <input class="mobile-menu-btn" type="checkbox" id="notos__menu-btn"/>
-        <label class="mobile-menu-icon" for="notos__mobile-menu-btn"><span class="navicon"></span></label>
-
+        <input type="checkbox" id="menu__btn">
+        <label class="menu" for="menu__btn">
+            <span class="open">{{ TPL.inlineSVG(TPL.tpl_incdir() ~ '/ico/menu.svg')|raw }}</span>
+            <span class="close">{{ TPL.inlineSVG(TPL.tpl_incdir() ~ '/ico/close.svg')|raw }}</span>
+        </label>
         {{ SELF.renderNavigation()|raw }}
 
         {% if ACT == 'show' %}
