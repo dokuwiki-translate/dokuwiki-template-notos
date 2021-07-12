@@ -3,6 +3,11 @@ html, body {
     margin: 0;
 }
 
+body > .dokuwiki {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 .container {
     box-sizing: border-box;
     width: 100%;
@@ -12,7 +17,13 @@ html, body {
     padding-right: 3rem; // needs to be enough to accommodate the page-tools
 }
 
+.dokuwiki > header,
+.dokuwiki > nav {
+    flex-grow: 0;
+}
+
 .dokuwiki > footer {
+    flex-grow: 0;
     clear: both;
     background-color: @ini_accent;
     min-height: 4rem;
@@ -26,8 +37,15 @@ html, body {
 
 .dokuwiki > main {
     position: relative;
-    min-height: 0.5 * @ini_site_width;
+    flex-grow: 1;
 }
+
+body > .no {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
 
 .dokuwiki div.footnotes {
     margin-bottom: 1rem;
@@ -45,6 +63,4 @@ html, body {
     }
 }
 
-.mobile-menu-btn {
-    display: none;
-}
+
