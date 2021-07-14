@@ -1,10 +1,21 @@
 /**
  * do not print
  */
-header.notos .header-controls,
-nav.notos,
+.dokuwiki > header.notos .container .header-controls,
+.dokuwiki > nav.notos,
 #dokuwiki__pagetools,
 #dw__toc,
-footer.notos {
+.dokuwiki > footer.notos {
     display: none;
+}
+
+.container {
+    max-width: initial;
+}
+
+.dokuwiki > main.notos > article.notos {
+    pre {
+        overflow: visible;
+        white-space: pre-wrap;
+    }
 }
