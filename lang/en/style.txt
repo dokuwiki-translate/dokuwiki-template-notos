@@ -1,0 +1,8 @@
+The Notos template uses less color variables than the default template. Those variables are shown in **bold** above.
+The non-bold variables are not used by Notos but plugins may rely on their settings, so they should contain reasonable
+values. The hints below tell you what you most likely want to add there.
+
+If you want to adjust the logo, simply use the Media Manager to upload a ''logo.png'' into the ''wiki'' namespace and it
+will be automatically used. You can also upload a ''favicon.ico'' there. If you use a closed
+wiki it is recommended to make the ''wiki'' namespace world readable in the ACL settings or
+your logo is not shown to not logged in users.
