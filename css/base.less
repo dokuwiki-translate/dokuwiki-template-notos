@@ -14,14 +14,25 @@ a {
     }
 }
 
-.dokuwiki .secedit button {
-    margin-top: 1rem;
-}
-
-.dokuwiki ul.idx {
-    padding-left: 1rem;
-}
-
 img, object, embed, iframe, video, audio {
     max-width: 100%;
 }
+
+// dokuwiki default style overrides
+.dokuwiki {
+    // don't highlight current ids
+    span.curid a {
+        font-weight: inherit;
+    }
+
+    // secedit button adjusted for our margins
+    .secedit button {
+        margin-top: 1rem;
+    }
+
+    // sitemap fix
+    ul.idx {
+        padding-left: 1rem;
+    }
+}
+
