@@ -9,6 +9,9 @@ form {
         border-radius: 2px;
         outline: none;
 
+        background-color: @ini_background;
+        color: @ini_text;
+
         &:active,
         &:focus {
             border: 1px solid @ini_highlight;
@@ -18,6 +21,7 @@ form {
     input[type=button],
     input[type=submit],
     button {
+        color: @ini_text;
         background-color: @ini_accent;
         cursor: pointer;
     }
