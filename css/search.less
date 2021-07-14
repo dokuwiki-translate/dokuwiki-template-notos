@@ -14,7 +14,17 @@ main article.notos {
 }
 
 /* quick search results */
-header.notos #qsearch__out {
-    width: 15rem;
-    border: 1px solid @ini_border;
+header.notos {
+    #dw__search div.no {
+        display: block;
+        //overflow: auto;
+    }
+
+    #qsearch__out {
+        width: 15rem;
+        left: -15rem;
+        box-sizing: border-box;
+        border: 1px solid @ini_border;
+        font-size: 80%;
+    }
 }
