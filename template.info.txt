@@ -1,5 +1,5 @@
 base     notos
-author   Anna Dabrowska
+author   Anna Dabrowska, Andreas Gohr
 email    dokuwiki@cosmocode.de
 date     2021-06-21
 name     Notos
