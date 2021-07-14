@@ -9,6 +9,7 @@ html, body {
 a {
     color: @ini_text;
     text-decoration: none;
+    border: none;
 
     &:hover {
         color: @ini_highlight;
@@ -34,6 +35,13 @@ img, object, embed, iframe, video, audio {
     // sitemap fix
     ul.idx {
         padding-left: 1rem;
+    }
+    
+    // namespace tree (ugly)
+    #media__tree ul.idx li img {
+        width: 12px;
+        height: 12px;
+        cursor: pointer;
     }
 }
 
