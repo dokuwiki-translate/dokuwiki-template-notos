@@ -1,4 +1,4 @@
-.dokuwiki > nav ul {
+.dokuwiki > nav.notos ul {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
@@ -81,7 +81,7 @@
 }
 
 // mobile toggle mechanism on desktop
-.dokuwiki > nav {
+.dokuwiki > nav.notos {
     label {
         display: none;
     }
@@ -96,7 +96,7 @@
     @menu-pos-y: -4rem;
 
     // mobile menu
-    .dokuwiki > nav {
+    .dokuwiki > nav.notos {
         position: relative;
 
         ul.navtabs {
@@ -139,7 +139,7 @@
     }
 
     // mobile toggle mechanism
-    .dokuwiki > nav {
+    .dokuwiki > nav.notos {
         label {
             position: absolute;
             left: @menu-pos-x;

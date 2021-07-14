@@ -14,7 +14,7 @@
 <body>
 <div id="dokuwiki__top" class="{{ TPL.tpl_classes() }}">
 
-    <header>
+    <header class="notos">
         <div class="container">
             {% set logo = TPL.tpl_getMediaFile([':wiki:logo.svg', ':wiki:logo.png', ':wiki:dokuwiki-128.png']) %}
             <div class="branding">
@@ -55,7 +55,7 @@
     </header>
 
 
-    <nav class="container">
+    <nav class="notos container">
         <input type="checkbox" id="menu__btn">
         <label class="menu" for="menu__btn">
             <span class="open">{{ TPL.inlineSVG(TPL.tpl_incdir() ~ '/ico/menu.svg')|raw }}</span>
@@ -71,7 +71,7 @@
 
     </nav>
 
-    <main class="container">
+    <main class="notos container">
         {{ TPL.html_msgarea()|raw }}
 
         <article>
@@ -93,7 +93,7 @@
 
     </main>
 
-    <footer>
+    <footer class="notos">
         <div class="container">
             {{ TPL.tpl_pageinfo()|raw }}
             {{ TPL.tpl_license('')|raw }}
