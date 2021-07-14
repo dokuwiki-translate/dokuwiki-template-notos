@@ -1,0 +1,47 @@
+.dokuwiki {
+
+
+    div.wrap_round {
+        border-radius: 3px;
+    }
+
+    div.wrap_box,
+    div.wrap_info,
+    div.wrap_tip,
+    div.wrap_important,
+    div.wrap_alert,
+    div.wrap_help,
+    div.wrap_download,
+    div.wrap_todo {
+        background-color: @ini_accent;
+        background-image: none;
+        border-left: 5px solid @ini_highlight;
+        padding: 0.5em 1em 0.25em 1em;
+    }
+
+    // original background colors darkened
+
+    div.wrap_tip {
+        border-color: darken(#fff79f, 50%);
+    }
+
+    div.wrap_important {
+        border-color: darken(#ffd39f, 50%);
+    }
+
+    div.wrap_alert {
+        border-color: darken(#ffbcaf, 50%);
+    }
+
+    div.wrap_help {
+        border-color: darken(#dcc2ef, 50%);
+    }
+
+    div.wrap_download {
+        border-color: darken(#d6efc2, 50%);
+    }
+
+    div.wrap_todo {
+        border-color: darken(#c2efdd, 50%);
+    }
+}
