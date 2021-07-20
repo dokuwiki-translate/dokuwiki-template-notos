@@ -147,7 +147,7 @@ class CustomController implements CustomControllerInterface
                     break;
                 case 'internallink':
                     // resolve ID
-                    $page = resolve_id('', $instruction[1][0]);
+                    $page = resolve_id('', $instruction[1][0], false);
                     // append to current list
                     $pointers[$pidx][] = [
                         'type' => 'internal',
