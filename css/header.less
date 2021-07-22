@@ -5,7 +5,7 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
 
-    .container {
+    .toprow {
         display: flex;
         justify-content: space-between;
 
@@ -79,13 +79,33 @@
             }
         }
     }
+
+    .breadcrumbs {
+        padding-top: 2rem;
+        font-size: small;
+
+        span.bchead {
+            font-weight: bold;
+        }
+
+        a {
+            color: unset;
+        }
+    }
 }
 
 @media screen and (max-width: @ini_phone_width) {
     .dokuwiki > header.notos {
         .container {
-            display: block;
             padding-right: 1rem;
+
+            .toprow {
+                display: block;
+            }
+
+            .breadcrumbs {
+                display: none;
+            }
         }
 
         div.tools label.notos-toggle span {
