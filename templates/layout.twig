@@ -16,41 +16,50 @@
 
     <header class="notos">
         <div class="container">
-            {% set logo = TPL.tpl_getMediaFile([':wiki:logo.svg', ':wiki:logo.png', ':wiki:dokuwiki-128.png']) %}
-            <div class="branding">
-                <a href="{{ TPL.wl() }}"><img src="{{ logo }}" alt="{{ conf.title|striptags }}"/></a>
-                <div>
-                    <h1 class="wikititle"><a href="{{ TPL.wl() }}">{{ conf.title|raw }}</a></h1>
-                    {% if conf.tagline %}<span class="tagline">{{ conf.tagline }}</span>{% endif %}
-                </div>
-            </div>
+            <div class="toprow">
 
-            <div class="header-controls">
-                <div class="tools">
-                    <div class="tools-site">
-                        <label class="notos-toggle" for="notos__sitetools">
-                            {{ TPL.inlineSVG(TPL.tpl_incdir() ~ '/ico/hammer-wrench.svg')|raw }}
-                            <span>{{ lang.site_tools }}</span>
-                        </label>
-                        <input type="checkbox" class="notos-toggle" id="notos__sitetools">
-                        <ul>
-                            {{ TPL.menu('site').getListItems('', false)|raw }}
-                        </ul>
-                    </div>
-                    <div class="tools-user">
-                        <label class="notos-toggle" for="notos__usertools">
-                            {{ TPL.inlineSVG(TPL.tpl_incdir() ~ '/ico/account-cog.svg')|raw }}
-                            <span>{{ lang.user_tools }}</span>
-                        </label>
-                        <input type="checkbox" class="notos-toggle" id="notos__usertools">
-                        <ul>
-                            {{ TPL.menu('user').getListItems('', false)|raw }}
-                        </ul>
+                {% set logo = TPL.tpl_getMediaFile([':wiki:logo.svg', ':wiki:logo.png', ':wiki:dokuwiki-128.png']) %}
+                <div class="branding">
+                    <a href="{{ TPL.wl() }}"><img src="{{ logo }}" alt="{{ conf.title|striptags }}"/></a>
+                    <div>
+                        <h1 class="wikititle"><a href="{{ TPL.wl() }}">{{ conf.title|raw }}</a></h1>
+                        {% if conf.tagline %}<span class="tagline">{{ conf.tagline }}</span>{% endif %}
                     </div>
                 </div>
 
-                {{ TPL.tpl_searchform()|raw }}
+                <div class="header-controls">
+                    <div class="tools">
+                        <div class="tools-site">
+                            <label class="notos-toggle" for="notos__sitetools">
+                                {{ TPL.inlineSVG(TPL.tpl_incdir() ~ '/ico/hammer-wrench.svg')|raw }}
+                                <span>{{ lang.site_tools }}</span>
+                            </label>
+                            <input type="checkbox" class="notos-toggle" id="notos__sitetools">
+                            <ul>
+                                {{ TPL.menu('site').getListItems('', false)|raw }}
+                            </ul>
+                        </div>
+                        <div class="tools-user">
+                            <label class="notos-toggle" for="notos__usertools">
+                                {{ TPL.inlineSVG(TPL.tpl_incdir() ~ '/ico/account-cog.svg')|raw }}
+                                <span>{{ lang.user_tools }}</span>
+                            </label>
+                            <input type="checkbox" class="notos-toggle" id="notos__usertools">
+                            <ul>
+                                {{ TPL.menu('user').getListItems('', false)|raw }}
+                            </ul>
+                        </div>
+                    </div>
+
+                    {{ TPL.tpl_searchform()|raw }}
+                </div>
             </div>
+
+            {% if ACT == 'show' %}
+                <div class="breadcrumbs">
+                    {{ TPL.tpl_breadcrumbs()|raw }}
+                </div>
+            {% endif %}
         </div>
     </header>
 
@@ -62,13 +71,6 @@
             <span class="close">{{ TPL.inlineSVG(TPL.tpl_incdir() ~ '/ico/close.svg')|raw }}</span>
         </label>
         {{ SELF.renderNavigation()|raw }}
-
-        {% if ACT == 'show' %}
-            <div class="breadcrumbs">
-                {{ TPL.tpl_breadcrumbs()|raw }}
-            </div>
-        {% endif %}
-
     </nav>
 
     <main class="notos container">
