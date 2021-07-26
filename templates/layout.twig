@@ -88,7 +88,7 @@
                     {% if TPL.view == 'detail' %}
                         {{ TPL.menu('detail').getListItems('action ')|raw }}
                     {% else %}
-                        {{ TPL.menu('page').getListItems('action ')|raw }}
+                        {{ SELF.menu(TPL.tpl_getconf('pagefloat')).getListItems('action ')|raw }}
                     {% endif %}
                 </ul>
             </div>

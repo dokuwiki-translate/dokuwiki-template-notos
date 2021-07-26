@@ -1,3 +1,4 @@
 <?php
 
-$meta['navigation_page'] = ['string'];
+$meta['navigation_page'] = array('string');
+$meta['pagefloat'] = array('string');

@@ -2,6 +2,7 @@
 
 namespace dokuwiki\template\notos;
 
+use dokuwiki\Menu\MenuInterface;
 use dokuwiki\template\twigstarter\CustomControllerInterface;
 use dokuwiki\template\twigstarter\TemplateController;
 
@@ -27,7 +28,7 @@ class CustomController implements CustomControllerInterface
      * @param string $class additional classes to add to the navigation
      * @return string
      */
-    public function renderNavigation($class='')
+    public function renderNavigation($class = '')
     {
         global $ID;
         global $ACT;
@@ -40,7 +41,7 @@ class CustomController implements CustomControllerInterface
 
         $pages = $this->parseNavigation(wikiFN($controlPage));
 
-        $html .= '<ul class="navtabs '.$class.'">';
+        $html .= '<ul class="navtabs ' . $class . '">';
         foreach ($pages as $page) {
             if ($this->isActive($page['page'], $ID)) {
                 $active = ' active';
@@ -172,5 +173,21 @@ class CustomController implements CustomControllerInterface
         }
 
         return $result;
+    }
+
+    /**
+     * Initializes and returns one of the menus
+     *
+     * @param string $type
+     * @return MenuInterface
+     */
+    public function menu($type)
+    {
+        $class = '\\dokuwiki\\Menu\\' . ucfirst($type) . 'Menu';
+        if (class_exists($class)) {
+            return new $class();
+        } else {
+            return new NotosMenu($type);
+        }
     }
 }
