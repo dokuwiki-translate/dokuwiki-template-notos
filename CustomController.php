@@ -52,6 +52,7 @@ class CustomController implements CustomControllerInterface
 
             $html .= '<li class="primary' . $active . '">';
             $html .= $this->navItemHTML($page);
+            $html .= '<span class="opener">' . inlineSVG(__DIR__ . '/ico/plus-circle-outline.svg') . '</span>';
             $html .= '</li>';
 
             // second level is a second item, because we reorder with flex box later
@@ -196,7 +197,8 @@ class CustomController implements CustomControllerInterface
      * Get Login/Logout Button
      * @return string
      */
-    public function loginButton() {
+    public function loginButton()
+    {
         try {
             return (new Login())->asHtmlLink();
         } catch (\RuntimeException $ignored) {

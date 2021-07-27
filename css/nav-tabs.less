@@ -6,8 +6,9 @@
     padding: 0;
 
     li {
-        padding: 0.5rem;
+        padding: 0;
         margin: 0;
+        box-sizing: border-box;
     }
 
     &.navtabs {
@@ -17,6 +18,11 @@
             height: 100%;
             width: 100%;
             text-align: center;
+            box-sizing: border-box;
+        }
+
+        a {
+            padding: 0.5rem;
         }
 
         li.primary {
@@ -24,6 +30,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
 
             border-right: 1px solid @ini_border;
             border-bottom: 1px solid @ini_border;
@@ -47,6 +54,10 @@
                 &:hover {
                     color: unset;
                 }
+            }
+
+            span.opener {
+                display: none; // only visible in mobile
             }
         }
 
@@ -126,11 +137,29 @@
             li.primary {
                 border: none;
                 border-top: 1px solid @ini_border;
+
+                span.opener {
+                    display: block;
+                    position: absolute;
+                    top: 0.25rem;
+                    right: 0.25rem;
+
+                    cursor: pointer;
+
+                    svg {
+                        width: 1.5em;
+                        height: 1.5em;
+                        fill: @ini_text;
+                    }
+                }
+
+                // we only open, but don't close
+                &.active span.opener {
+                    display: none;
+                }
             }
 
             li.secondary {
-                display: block;
-
                 &.active {
                     order: unset;
                 }
