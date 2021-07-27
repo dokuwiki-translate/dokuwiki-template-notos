@@ -17,7 +17,6 @@
     <header class="notos">
         <div class="container">
             <div class="toprow">
-
                 {% set logo = TPL.tpl_getMediaFile([':wiki:logo.svg', ':wiki:logo.png', ':wiki:dokuwiki-128.png']) %}
                 <div class="branding">
                     <a href="{{ TPL.wl() }}"><img src="{{ logo }}" alt="{{ conf.title|striptags }}"/></a>
@@ -50,15 +49,27 @@
                                 </ul>
                             </div>
                         </div>
+
+                        <div class="tool-login">
+                            {{ SELF.loginButton()|raw }}
+                        </div>
                     </div>
+
 
                     {{ TPL.tpl_searchform()|raw }}
                 </div>
             </div>
 
-            {% if ACT == 'show' %}
-                <div class="breadcrumbs">
-                    {{ TPL.tpl_breadcrumbs()|raw }}
+            {% if _SERVER.REMOTE_USER %}
+                <div class="bottom-row">
+                    <div class="breadcrumbs">
+                        {% if ACT == 'show' %}
+                            {{ TPL.tpl_breadcrumbs()|raw }}
+                        {% endif %}
+                    </div>
+                    <div class="user">
+                        {{ TPL.userlink()|raw }}
+                    </div>
                 </div>
             {% endif %}
         </div>

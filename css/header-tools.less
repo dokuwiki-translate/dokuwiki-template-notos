@@ -1,0 +1,75 @@
+.dokuwiki > header.notos .toprow {
+    .tools {
+        z-index: 1;
+        position: relative;
+        display: flex;
+
+        > div {
+            margin-left: 1rem;
+
+            svg {
+                fill: @ini_header_text;
+                width: 1.2rem;
+                height: 1.2rem;
+                margin-right: 0.25rem;
+            }
+        }
+
+        div.tool-button {
+            display: inline-block;
+
+            label {
+                display: flex;
+                align-items: center;
+            }
+
+            div {
+                position: absolute;
+                right: 0;
+                top: 1.5em;
+                width: 20rem;
+                z-index: 10;
+                background-color: @ini_header_text;
+                border: 1px solid @ini_border;
+
+                b {
+                    color: @ini_text;
+                    opacity: 0.2;
+                    font-size: 90%;
+                    padding-left: 1rem;
+                    white-space: nowrap;
+                    writing-mode: vertical-rl;
+
+                    position: absolute;
+                    right: 0;
+
+                    padding-top: 0.25rem;
+                }
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0 0 1rem 0;
+
+                    li {
+                        text-align: center;
+                        line-height: 2;
+
+                        &.top {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        div.tool-login {
+            a {
+                color: @ini_header_text;
+                display: flex;
+                align-items: center;
+                flex-direction: row-reverse;
+            }
+        }
+    }
+}

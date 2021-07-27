@@ -2,6 +2,7 @@
 
 namespace dokuwiki\template\notos;
 
+use dokuwiki\Menu\Item\Login;
 use dokuwiki\Menu\MenuInterface;
 use dokuwiki\template\twigstarter\CustomControllerInterface;
 use dokuwiki\template\twigstarter\TemplateController;
@@ -188,6 +189,19 @@ class CustomController implements CustomControllerInterface
             return new $class();
         } else {
             return new NotosMenu($type);
+        }
+    }
+
+    /**
+     * Get Login/Logout Button
+     * @return string
+     */
+    public function loginButton() {
+        try {
+            return (new Login())->asHtmlLink();
+        } catch (\RuntimeException $ignored) {
+            // item not available
+            return '';
         }
     }
 }

@@ -1,0 +1,34 @@
+.dokuwiki > header.notos .bottom-row {
+    display: flex;
+    align-items: flex-end;
+    padding-top: 0.5rem;
+
+    a {
+        color: unset;
+    }
+
+    .breadcrumbs {
+        font-size: small;
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        span.bchead {
+            font-weight: bold;
+        }
+
+    }
+
+    .user {
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        a.iw_user {
+            background-image: none;
+        }
+    }
+
+    @media screen and (max-width: @ini_phone_width) {
+        display: none;
+    }
+}
+
