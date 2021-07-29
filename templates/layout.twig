@@ -35,6 +35,7 @@
                             </label>
                             <input type="checkbox" class="notos-toggle" id="notos__sitetools">
                             <div>
+                                {% if _SERVER.REMOTE_USER or not conf.tpl.notos.hide_tools %}
                                 <b>{{ lang.page_tools }}</b>
                                 <ul>
                                     {{ TPL.menu('page').getListItems('', false)|raw }}
@@ -43,6 +44,7 @@
                                 <ul>
                                     {{ TPL.menu('site').getListItems('', false)|raw }}
                                 </ul>
+                                {% endif %}
                                 <b>{{ lang.user_tools }}</b>
                                 <ul>
                                     {{ TPL.menu('user').getListItems('', false)|raw }}
@@ -94,6 +96,7 @@
         </article>
 
         <aside id="dokuwiki__pagetools">
+            {% if _SERVER.REMOTE_USER or not conf.tpl.notos.hide_tools %}
             <div class="tools">
                 <ul>
                     {% if TPL.view == 'detail' %}
@@ -103,6 +106,7 @@
                     {% endif %}
                 </ul>
             </div>
+            {% endif %}
         </aside>
 
     </main>
