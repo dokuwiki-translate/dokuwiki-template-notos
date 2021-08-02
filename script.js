@@ -14,3 +14,10 @@ jQuery(function () {
         event.preventDefault();
     });
 });
+
+jQuery('body').not(jQuery('.notos-toggle').children()).on('click', function(event) {
+    const $toggle = jQuery('input.notos-toggle');
+    if (event.target !== document.getElementById('notos__sitetools') && $toggle.prop('checked')) {
+        $toggle.prop('checked', false);
+    }
+});
