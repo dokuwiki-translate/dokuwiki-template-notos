@@ -1,7 +1,7 @@
 base     notos
 author   Anna Dabrowska, Andreas Gohr
 email    dokuwiki@cosmocode.de
-date     2021-08-02
+date     2021-08-03
 name     Notos
 desc     Template based on TwigStarter
 url      https://www.dokuwiki.org/template:notos
