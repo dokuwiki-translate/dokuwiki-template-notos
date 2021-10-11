@@ -44,3 +44,16 @@ header.notos {
         font-size: 80%;
     }
 }
+
+@media screen and (max-width: @ini_phone_width) {
+    .dokuwiki form.search div.ajax_qsearch {
+        left: 0;
+        top: 2rem;
+    }
+
+    header.notos {
+        #qsearch__out {
+            left: 0;
+        }
+    }
+}
