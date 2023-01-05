@@ -150,7 +150,9 @@ class CustomController implements CustomControllerInterface
                     break;
                 case 'internallink':
                     // resolve ID
-                    $page = resolve_id('', $instruction[1][0], false);
+                    global $ID;
+                    $resolver = new \dokuwiki\File\PageResolver($ID);
+                    $page = $resolver->resolveId($instruction[1][0]);
                     // append to current list
                     $pointers[$pidx][] = [
                         'type' => 'internal',
