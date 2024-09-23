@@ -12,7 +12,8 @@
     div.wrap_alert,
     div.wrap_help,
     div.wrap_download,
-    div.wrap_todo {
+    div.wrap_todo,
+    div.wrap_notos {
         padding: 0.5em 1em 0.25em 1em;
 
         border-left: 5px solid @ini_highlight;
@@ -49,5 +50,11 @@
     div.wrap_todo {
         border-color: #c2efdd;
         background: linear-gradient(-45deg, #c2efdd, transparent);
+    }
+
+    div.wrap_notos {
+        overflow: hidden;
+        border-color: black;
+        background: @ini_background;
     }
 }

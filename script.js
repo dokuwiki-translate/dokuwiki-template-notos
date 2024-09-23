@@ -28,4 +28,21 @@ jQuery(function () {
             $toggle.prop('checked', false);
         }
     });
+
 });
+
+/**
+ * Editor button
+ */
+if (typeof window.toolbar !== 'undefined') {
+    const wrapConfig = window.toolbar.find((button) => button.title === 'Wrap Plugin');
+    if (wrapConfig) {
+        wrapConfig.list.splice(1, 0, {
+            type: "format",
+            title: 'simple highlight box',
+            icon: "../../tpl/notos/ico/rectangle.svg",
+            open: "<WRAP notos center round 60%>",
+            close: "</WRAP>",
+        });
+    }
+}
