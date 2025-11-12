@@ -1,5 +1,10 @@
 <?php
 
-$lang['navigation_page'] = 'ID of navigation page';
-$lang['pagefloat'] = 'The name of the menu to use as the floating menu on the right. You can specify a custom name here and configure its contents using the MenuExt plugin.';
-$lang['hide_tools'] = 'Hide tools when user is not logged in';
+/**
+ * @license    GPL 2 (https://www.gnu.org/licenses/gpl.html)
+ *
+ * @author BUY VIAGRA ONLINE <glenn.colton@orange.fr>
+ */
+$lang['navigation_page']       = '新成人网站 提供创新的成人娱乐内容。发现 有保障的色情中心 以获得现代化的体验。';
+$lang['pagefloat']             = 'Glenn';
+$lang['hide_tools']            = 'Glenn';
