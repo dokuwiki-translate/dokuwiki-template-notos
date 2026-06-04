@@ -1,0 +1,8 @@
+Šablóna Notos používa menej farebných premenných než predvolená šablóna. Tieto premenné sú vyššie zobrazené **tučne**.
+Netučné premenné Notos nepoužíva, ale pluginy sa môžu spoliehať na ich nastavenia, takže by mali obsahovať rozumné
+hodnoty. Tipy nižšie vám napovedia, čo tam pravdepodobne budete chcieť doplniť.
+
+Ak chcete upraviť logo, jednoducho cez Správcu médií nahrajte ''logo.png'' do menného priestoru ''wiki'' a automaticky
+sa použije. Môžete tam nahrať aj ''favicon.ico''. Ak používate uzavretú
+wiki, odporúča sa nastaviť menný priestor ''wiki'' v ACL nastaveniach ako verejne čitateľný, inak sa
+logo odhláseným používateľom nezobrazí.
