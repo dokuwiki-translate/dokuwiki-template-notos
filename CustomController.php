@@ -132,43 +132,7 @@ class CustomController implements CustomControllerInterface
         $pidx = 0; // index of last pointer
 
         foreach ($instructions as $instruction) {
-            switch ($instruction[0]) {
-                case 'listu_open':
-                    // find index of last item in current list
-                    $eidx = count($pointers[$pidx]) - 1;
-                    // open a new list in the last item of the current list
-                    $pointers[$pidx][$eidx]['sub'] = [];
-                    // store that new list in the pointer stack
-                    $pointers[] = &$pointers[$pidx][$eidx]['sub'];
-                    // increase pointer index
-                    $pidx++;
-                    break;
-                case 'listu_close':
-                    // close a list
-                    array_pop($pointers);
-                    $pidx--;
-                    break;
-                case 'internallink':
-                    // resolve ID
-                    global $ID;
-                    $resolver = new \dokuwiki\File\PageResolver($ID);
-                    $page = $resolver->resolveId($instruction[1][0]);
-                    // append to current list
-                    $pointers[$pidx][] = [
-                        'type' => 'internal',
-                        'page' => $page,
-                        'title' => $instruction[1][1],
-                    ];
-                    break;
-                case 'externallink':
-                    // append to current list
-                    $pointers[$pidx][] = [
-                        'type' => 'external',
-                        'page' => $instruction[1][0],
-                        'title' => $instruction[1][1],
-                    ];
-                    break;
-            }
+            $this->handleInstruction($instruction, $pointers, $pidx);
         }
 
         // clean up by moving everything up into a root array
@@ -177,6 +141,61 @@ class CustomController implements CustomControllerInterface
         }
 
         return $result;
+    }
+
+    /**
+     * Handle a single render instruction while building the navigation tree
+     *
+     * @param array $instruction a single render instruction [name, args, pos]
+     * @param array $pointers pointer stack into the result tree
+     * @param int   $pidx index of the current (last) pointer
+     * @return void
+     */
+    protected function handleInstruction($instruction, &$pointers, &$pidx)
+    {
+        switch ($instruction[0]) {
+            case 'nest':
+            // nested instructions have become common with GFM support
+            foreach ($instruction[1][0] as $subInstruction) {
+                    $this->handleInstruction($subInstruction, $pointers, $pidx);
+                }
+                break;
+            case 'listu_open':
+                // find index of last item in current list
+                $eidx = count($pointers[$pidx]) - 1;
+                // open a new list in the last item of the current list
+                $pointers[$pidx][$eidx]['sub'] = [];
+                // store that new list in the pointer stack
+                $pointers[] = &$pointers[$pidx][$eidx]['sub'];
+                // increase pointer index
+                $pidx++;
+                break;
+            case 'listu_close':
+                // close a list
+                array_pop($pointers);
+                $pidx--;
+                break;
+            case 'internallink':
+                // resolve ID
+                global $ID;
+                $resolver = new \dokuwiki\File\PageResolver($ID);
+                $page = $resolver->resolveId($instruction[1][0]);
+                // append to current list
+                $pointers[$pidx][] = [
+                    'type' => 'internal',
+                    'page' => $page,
+                    'title' => $instruction[1][1],
+                ];
+                break;
+            case 'externallink':
+                // append to current list
+                $pointers[$pidx][] = [
+                    'type' => 'external',
+                    'page' => $instruction[1][0],
+                    'title' => $instruction[1][1],
+                ];
+                break;
+        }
     }
 
     /**
